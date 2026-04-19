@@ -97,11 +97,11 @@
   }
   .btn-secondary:hover { color: var(--rose-dark); }
   .hero-right {
-    display: flex; align-items: center; justify-content: center;
-    background: var(--rose-pale); overflow: hidden;
+    position: relative; overflow: hidden;
+    background: var(--rose-pale);
   }
   .hero-right img {
-    width: 70%; max-width: 340px; height: auto; object-fit: contain;
+    width: 100%; height: 100%; object-fit: cover;
   }
   .hero-badge {
     position: absolute; bottom: 2rem; left: -1rem;
@@ -194,6 +194,9 @@
     font-size: 0.8rem; letter-spacing: 0.05em;
   }
   .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.8); font-weight: 300; }
+  .footer-social { display: flex; gap: 1rem; align-items: center; }
+  .footer-social a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+  .footer-social a:hover { color: #fff; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -220,7 +223,7 @@
 <body>
 
 <nav>
-  <img src="logo.svg" style="height: 38px;" />
+  <span class="nav-logo">Sky Nails &amp; Beauty</span>
   <ul class="nav-links">
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#services">Services</a></li>
@@ -245,8 +248,8 @@
       Southampton SO15 2DT
     </div>
   </div>
-  <div class="hero-right" style="display:flex; align-items:center; justify-content:center; background:var(--rose-pale);">
-    <img src="logo.svg" alt="Sky Nails & Beauty" style="width:70%; max-width:340px; height:auto;" />
+  <div class="hero-right">
+    <img src="2025-02-15.jpg" alt="Sky Nails & Beauty — beautiful nail art" />
   </div>
 </section>
 
@@ -387,9 +390,19 @@
 
 <!-- FOOTER -->
 <footer>
-  <img src="logo.svg" alt="Sky Nails & Beauty" style="height: 32px; filter: invert(1) brightness(0.8);" />
+  <span class="footer-brand">Sky Nails &amp; Beauty</span>
   <span>54 Bedford Place, Southampton SO15 2DT</span>
-  <span>© 2026 Sky Nails & Beauty</span>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/skynails_southampton/" target="_blank" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sky_nails_southampton" target="_blank" aria-label="TikTok">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/skynailsSouthampton/?locale=en_GB" target="_blank" aria-label="Facebook">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+  </div>
 </footer>
 
 <script>
