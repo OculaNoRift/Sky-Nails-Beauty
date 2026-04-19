@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Nails & Beauty — Southampton</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rose: #1a1a1a;
+    --rose-light: #e8e8e8;
+    --rose-pale: #f4f4f2;
+    --rose-dark: #000000;
+    --charcoal: #1a1a1a;
+    --warm-white: #fafafa;
+    --mid: #777777;
+    --border: rgba(0,0,0,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: rgba(250,250,250,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 400; letter-spacing: 0.08em;
+    color: var(--rose-dark); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-cta {
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--rose); color: #fff; padding: 0.55rem 1.4rem;
+    border-radius: 999px; text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--rose-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    background: var(--warm-white);
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 1.5rem;
+  }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05;
+    color: var(--charcoal); margin-bottom: 1.5rem;
+  }
+  .hero-h1 em { font-style: italic; color: var(--rose); }
+  .hero-sub {
+    font-size: 0.95rem; line-height: 1.8; color: var(--mid);
+    max-width: 380px; margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--rose); color: #fff;
+    padding: 0.85rem 2rem; border-radius: 999px;
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose-dark); }
+  .btn-secondary {
+    color: var(--rose); font-size: 0.82rem; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    border-bottom: 1px solid var(--border); padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--rose-dark); }
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: var(--rose-pale);
+  }
+  .hero-right img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-badge {
+    position: absolute; bottom: 2rem; left: -1rem;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; padding: 1rem 1.25rem;
+    font-size: 0.8rem; color: var(--mid);
+    box-shadow: 0 8px 32px rgba(181,67,106,0.12);
+  }
+  .hero-badge strong { display: block; color: var(--charcoal); font-weight: 500; font-size: 1rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1;
+    color: var(--charcoal); margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--rose); }
+  .section-intro { font-size: 0.95rem; line-height: 1.8; color: var(--mid); max-width: 520px; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--rose-pale); }
+  .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+  .gallery-item { overflow: hidden; border-radius: 8px; background: var(--rose-light); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; min-height: 380px; }
+  .gallery-item:not(:nth-child(1)) { min-height: 180px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--warm-white); }
+  .services-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+  .services-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  }
+  .service-item {
+    background: var(--warm-white); padding: 1.25rem 1.5rem;
+    font-size: 0.88rem; color: var(--mid); letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .service-item:hover { background: var(--rose-pale); color: var(--rose); }
+  .service-item span { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.15rem; }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--rose-pale); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .review-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem;
+  }
+  .review-stars { display: flex; gap: 3px; }
+  .star { width: 14px; height: 14px; fill: #c9a84c; }
+  .review-text { font-size: 0.9rem; line-height: 1.8; color: var(--mid); font-style: italic; flex: 1; }
+  .review-author { font-size: 0.82rem; font-weight: 500; color: var(--charcoal); letter-spacing: 0.05em; }
+  .review-meta { font-size: 0.75rem; color: #b0899e; }
+
+  /* ── INFO ── */
+  #info { background: var(--warm-white); }
+  .info-layout { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
+  .info-block h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 1.25rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hours-row { display: flex; justify-content: space-between; padding: 0.45rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row .day { color: var(--mid); }
+  .hours-row .time { font-weight: 400; color: var(--charcoal); }
+  .hours-row .closed { color: #999; }
+  .contact-line { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: var(--mid); margin-bottom: 1rem; line-height: 1.6; }
+  .contact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); margin-top: 7px; flex-shrink: 0; }
+  .map-embed { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .map-embed iframe { display: block; width: 100%; height: 220px; border: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111; color: rgba(255,255,255,0.5);
+    padding: 2.5rem 5rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; letter-spacing: 0.05em;
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.8); font-weight: 300; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 55vw; }
+    .hero-left { padding: 3rem 2rem; }
+    section { padding: 4rem 2rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 2; min-height: 260px; }
+    .services-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .info-layout { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
+    .gallery-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+
+  /* ── FADE IN ── */
+  .fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#"><img src="logo.svg" alt="Sky Nails & Beauty" style="height: 38px;" /></a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#info">Find us</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:02380191757">Call to book</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Southampton's nail specialists</p>
+    <h1 class="hero-h1">Beautiful nails,<br><em>beautifully done.</em></h1>
+    <p class="hero-sub">Professional nail care and beauty treatments in the heart of Southampton. From gel manicures to intricate nail art — crafted with care.</p>
+    <div class="hero-actions">
+      <a href="tel:02380191757" class="btn-primary">Call 023 8019 1757</a>
+      <a href="#gallery" class="btn-secondary">View our work</a>
+    </div>
+    <div class="hero-badge" style="margin-top:3rem; position:relative; bottom:auto; left:auto; display:inline-block;">
+      <strong>54 Bedford Place</strong>
+      Southampton SO15 2DT
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="images/2025-02-15.jpg" alt="Sky Nails & Beauty — beautiful nail art" />
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header fade">
+    <div>
+      <p class="section-label">Our work</p>
+      <h2 class="section-title">A little <em>gallery</em></h2>
+    </div>
+    <p class="section-intro" style="max-width:280px;">Every set is a unique creation. Here's some of what our talented technicians have crafted recently.</p>
+  </div>
+  <div class="gallery-grid fade">
+    <div class="gallery-item"><img src="images/2025-02-15.jpg" alt="Floral nail art"></div>
+    <div class="gallery-item"><img src="images/2025-07-22.jpg" alt="French marble nails"></div>
+    <div class="gallery-item"><img src="images/2026-04-01.jpg" alt="Blue floral nails"></div>
+    <div class="gallery-item"><img src="images/fdjd.jpg" alt="Cherry nail art"></div>
+    <div class="gallery-item"><img src="images/fgdg.jpg" alt="Red floral nails"></div>
+    <div class="gallery-item"><img src="images/ghj.jpg" alt="Black ombré nails"></div>
+    <div class="gallery-item"><img src="images/gj.jpg" alt="Blue ombré nails"></div>
+    <div class="gallery-item"><img src="images/htgjfhtgjhg.jpg" alt="Dramatic nail art"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-layout">
+    <div class="fade">
+      <p class="section-label">What we offer</p>
+      <h2 class="section-title">Our <em>services</em></h2>
+      <p class="section-intro">From classic manicures to the latest nail trends, our skilled technicians deliver beautiful results every time.</p>
+      <a href="tel:02380191757" class="btn-primary" style="display:inline-block; margin-top:2rem;">Book an appointment</a>
+    </div>
+    <div class="services-grid fade">
+      <div class="service-item"><span>Gel manicure</span>Long-lasting colour & shine</div>
+      <div class="service-item"><span>Acrylic nails</span>Full sets & infills</div>
+      <div class="service-item"><span>French manicure</span>Classic & modern styles</div>
+      <div class="service-item"><span>Nail extensions</span>Length & strength</div>
+      <div class="service-item"><span>Nail art & designs</span>Bespoke creative work</div>
+      <div class="service-item"><span>Ombré nails</span>Gradient colour blends</div>
+      <div class="service-item"><span>Dip powder</span>Durable, chip-resistant</div>
+      <div class="service-item"><span>Pedicure</span>Feet that feel amazing</div>
+      <div class="service-item"><span>Foot massage</span>Relax and unwind</div>
+      <div class="service-item"><span>Manicure</span>Classic hand treatment</div>
+      <div class="service-item"><span>Nail repair</span>Fix breaks & chips</div>
+      <div class="service-item"><span>Nail cut & filing</span>Shape & finish</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="fade">
+    <p class="section-label">What clients say</p>
+    <h2 class="section-title">Loved by <em>Southampton</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade">
+      <div class="review-stars">
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="review-text">"First time going here — the nails are of very high quality, my tech went back over some things of his own choice to make them better. They're also very accommodating when you want to change something! Lovely staff."</p>
+      <div>
+        <p class="review-author">Mia Jolliffe</p>
+        <p class="review-meta">4 months ago · Google review</p>
+      </div>
+    </div>
+    <div class="review-card fade">
+      <div class="review-stars">
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="review-text">"I love Sky Nail and Beauty!! Been coming here for years and can't think of anywhere else I'd want to go to get my nails done. I'm never disappointed and they are so talented."</p>
+      <div>
+        <p class="review-author">Lizzie S</p>
+        <p class="review-meta">4 months ago · Google review</p>
+      </div>
+    </div>
+    <div class="review-card fade">
+      <div class="review-stars">
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="review-text">"I couldn't recommend Sky Nails enough! I was so impressed with the quality and speed of the work. My nails look beautiful. The prices were very reasonable as well — I had a pedicure and biab extensions with cat eye gel and silver star art."</p>
+      <div>
+        <p class="review-author">Rebecca Louise Ferreira</p>
+        <p class="review-meta">5 months ago · Google review</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="fade" style="margin-bottom:3rem;">
+    <p class="section-label">Visit us</p>
+    <h2 class="section-title">Find <em>Sky Nails</em></h2>
+  </div>
+  <div class="info-layout">
+    <div class="info-block fade">
+      <h3>Opening hours</h3>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">9:00 am – 6:00 pm</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">9:00 am – 6:00 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">9:00 am – 6:00 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">9:00 am – 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">9:00 am – 6:00 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">9:00 am – 6:00 pm</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="closed">Closed</span></div>
+    </div>
+    <div class="info-block fade">
+      <h3>Get in touch</h3>
+      <div class="contact-line"><div class="contact-dot"></div>54 Bedford Place, Southampton SO15 2DT</div>
+      <div class="contact-line"><div class="contact-dot"></div><a href="tel:02380191757" style="color:inherit; text-decoration:none;">023 8019 1757</a></div>
+      <a href="tel:02380191757" class="btn-primary" style="display:inline-block; margin-top:1.5rem;">Call to book</a>
+    </div>
+    <div class="info-block fade">
+      <h3>Location</h3>
+      <div class="map-embed">
+        <iframe
+          src="https://maps.google.com/maps?q=54+Bedford+Pl,+Southampton+SO15+2DT&output=embed"
+          loading="lazy"
+          title="Sky Nails & Beauty location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo.svg" alt="Sky Nails & Beauty" style="height: 32px; filter: invert(1) brightness(0.8);" />
+  <span>54 Bedford Place, Southampton SO15 2DT</span>
+  <span>© 2026 Sky Nails & Beauty</span>
+</footer>
+
+<script>
+  const fades = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  fades.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

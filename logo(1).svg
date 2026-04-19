@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160" role="img">
+  <title>Sky Nails &amp; Beauty logo</title>
+  <desc>Elegant logo for Sky Nails &amp; Beauty Southampton</desc>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Jost:wght@300;400&display=swap');
+    </style>
+  </defs>
+
+  <text
+    x="260" y="108"
+    text-anchor="middle"
+    font-family="'Pinyon Script', 'Brush Script MT', cursive"
+    font-size="78"
+    font-weight="400"
+    fill="#1a1a1a">Sky Nails &amp; Beauty</text>
+
+  <line x1="40" y1="120" x2="192" y2="120" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="328" y1="120" x2="480" y2="120" stroke="#1a1a1a" stroke-width="0.5"/>
+
+  <text
+    x="260" y="134"
+    text-anchor="middle"
+    font-family="'Jost', sans-serif"
+    font-size="10"
+    font-weight="300"
+    letter-spacing="6"
+    fill="#1a1a1a">PROFESSIONAL NAIL CARE</text>
+
+  <text
+    x="260" y="150"
+    text-anchor="middle"
+    font-family="'Jost', sans-serif"
+    font-size="8"
+    font-weight="300"
+    letter-spacing="5"
+    fill="#888888">SOUTHAMPTON</text>
+</svg>
